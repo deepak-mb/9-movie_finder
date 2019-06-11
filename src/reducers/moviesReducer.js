@@ -1,11 +1,12 @@
-import { GET_POPULAR, GET_MOVIE_DETAILS } from "../actions/types";
+import { GET_POPULAR, GET_MOVIE_DETAILS, GET_VIDEO } from "../actions/types";
 
 const initialState = {
   page: "",
   movies: [],
   total_pages: "",
   total_results: "",
-  movieDetails: {}
+  movieDetails: {},
+  videoDetails: {}
 };
 
 export default function(state = initialState, action) {
@@ -27,6 +28,12 @@ export default function(state = initialState, action) {
         movieDetails: action.payload
       };
 
+    case GET_VIDEO:
+      console.log(action.payload);
+      return {
+        ...state,
+        videoDetails: action.payload
+      };
     default:
       return state;
   }

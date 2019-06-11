@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-md navbar-dark sticky-top">
-      <a className="navbar-brand" href="http://localhost:3001/">
+      <a
+        className="navbar-brand"
+        href="https://deepak-mb.github.io/9-movie_finder/"
+      >
         Navbar
       </a>
       <button
