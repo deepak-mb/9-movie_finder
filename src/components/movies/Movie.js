@@ -6,28 +6,6 @@ import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 
 class Movie extends Component {
-  state = {
-    show: false,
-    videoKey: "",
-    url: ""
-  };
-
-  handleClose = () => {
-    this.setState({ show: false });
-  };
-
-  handleShow = id => {
-    this.props.getVideo(id);
-    this.setState({ show: true });
-  };
-  componentWillReceiveProps(nextProps) {
-    nextProps.videoDetails.map(d =>
-      this.setState({
-        videoKey: d.key,
-        url: `https://www.youtube.com/embed/${d.key}?autoplay=1`
-      })
-    );
-  }
   render() {
     const {
       id,
@@ -40,9 +18,6 @@ class Movie extends Component {
       release_date
     } = this.props.movie;
     // console.log();
-    const { videoKey } = this.state;
-    // console.log(`https://www.youtube.com/embed/${videoKey}?autoplay=1`);
-    // console.log(this.state.videoKey);
     return (
       <div className="card">
         <img
@@ -77,31 +52,45 @@ class Movie extends Component {
             className="card-link btn btn-dark links"
           /> */}
         </div>
-        <div className="div">
-          <Modal show={this.state.show} onHide={this.handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Modal heading</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <div className="embed-container">
-                <iframe
-                  src={`https://www.youtube.com/embed/${videoKey}?autoplay=1`}
-                  frameBorder="0"
-                  allowFullScreen
-                />
-              </div>
-            </Modal.Body>
-            <Modal.Footer className="py-1">
-              <input
-                type="button"
-                value="Close"
-                onClick={this.handleClose}
-                className="btn btn-dark links"
-              />
-            </Modal.Footer>
-          </Modal>
-        </div>
       </div>
+      // <div class="row no-gutters my-5">
+      //   <div class="col-md-4">
+      //     <img
+      //       src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+      //       class="card-img"
+      //       alt="Poster"
+      //     />
+      //     {/* <div
+      //       style={{
+      //         backgroundImage: `url(https://image.tmdb.org/t/p/w500/${poster_path})`,
+      //         backgroundPosition: "center",
+      //         backgroundAttachment: "scroll",
+      //         backgroundSize: "cover",
+      //         height: "100%",
+      //         backgroundRepeat: "no-repeat"
+      //       }}
+      //     /> */}
+      //   </div>
+      //   <div class="col-md-8">
+      //     <div class="card-body">
+      //       <h5 class="card-title movie-title">{title}</h5>
+      //       <span className="movie-rating">
+      //         <i className="far fa-thumbs-up mx-1" />
+      //         {vote_average}
+      //       </span>
+      //       <p class="card-text movie-overview">{overview}</p>
+      //       <p class="card-text">
+      //         <small class="text-muted">Release Date: {release_date}</small>
+      //       </p>
+      //       <Link
+      //         to={`/moviedetails/${id}`}
+      //         className="card-link btn btn-dark links"
+      //       >
+      //         Movie Details
+      //       </Link>
+      //     </div>
+      //   </div>
+      // </div>
     );
   }
 }
