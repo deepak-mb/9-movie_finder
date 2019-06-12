@@ -35,7 +35,7 @@ class MovieDetails extends Component {
             backgroundImage: `url(https://image.tmdb.org/t/p/original/${backdrop_path})`
           }}
         >
-          <div className="container my-5">
+          <div className="container my-5 my-md-auto">
             <div className="row my-2">
               <div className="col-12 col-sm-12 col-md-4 my-3">
                 <img
@@ -44,7 +44,7 @@ class MovieDetails extends Component {
                 />
               </div>
               <div className="col-12 col-sm-12 col-md-8 detail-section">
-                <h3 className="title">
+                <h3 className="title text-white">
                   {title}
                   <sup>
                     <i className="fas fa-star" style={{ color: "#f2b01e" }} />
@@ -52,8 +52,8 @@ class MovieDetails extends Component {
                   </sup>
                 </h3>
                 <h5 className="tagline">{tagline}</h5>
-                <p className="overview">{overview}</p>
-                <p>Release Date: {release_date}</p>
+                <p className="overview text-white">{overview}</p>
+                <p className="text-white">Release Date: {release_date}</p>
               </div>
             </div>
           </div>

@@ -8,7 +8,7 @@ export default function Navbar() {
         className="navbar-brand"
         href="https://deepak-mb.github.io/9-movie_finder/"
       >
-        Navbar
+        Movies Database
       </a>
       <button
         className="navbar-toggler"
@@ -29,11 +29,11 @@ export default function Navbar() {
               Home
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <a className="nav-link" href="!#">
               Link
             </a>
-          </li>
+          </li> */}
         </ul>
         {/* <form className="form-inline my-2 my-lg-0">
           <input
