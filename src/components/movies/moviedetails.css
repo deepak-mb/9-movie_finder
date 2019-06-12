@@ -1,0 +1,58 @@
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+h3,
+h5,
+p {
+  color: #fff;
+}
+img {
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: Roboto;
+  font-weight: 500;
+}
+sup {
+  font-weight: 300;
+  font-size: 1rem;
+}
+.tagline {
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+.overview {
+  text-align: justify;
+  font-weight: 400;
+}
+
+.backdrop {
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  background-repeat: no-repeat;
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 0px 4000px inset;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    margin: 0 auto !important;
+  }
+  .backdrop {
+    height: 100vh;
+  }
+  img {
+    width: 100%;
+    max-width: 300px;
+  }
+  .detail-section {
+    padding: 2rem 0;
+  }
+}

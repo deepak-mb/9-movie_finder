@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getMovieDetails } from "../../actions/movieActions";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import "./moviedetails.css";
 
 class MovieDetails extends Component {
   state = {
@@ -9,23 +10,53 @@ class MovieDetails extends Component {
   };
   componentDidMount() {
     const { id } = this.props.match.params;
-    console.log(id);
     this.props.getMovieDetails(id);
   }
 
   render() {
-    const { movieDetails } = this.props;
-    console.log(this.props.movieDetails);
-    if (movieDetails.backdrop_path) {
+    const {
+      backdrop_path,
+      genres,
+      overview,
+      poster_path,
+      production_companies,
+      release_date,
+      runtime,
+      tagline,
+      title,
+      vote_average
+    } = this.props.movieDetails;
+    // console.log(this.props.movieDetails);
+    if (this.props) {
       return (
-        <div>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${
-              movieDetails.backdrop_path
-            }`}
-            alt="Backdrop"
-            className="w-100"
-          />
+        <div
+          className="backdrop"
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/original/${backdrop_path})`
+          }}
+        >
+          <div className="container my-5">
+            <div className="row my-2">
+              <div className="col-12 col-sm-12 col-md-4 my-3">
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                  alt="Poster"
+                />
+              </div>
+              <div className="col-12 col-sm-12 col-md-8 detail-section">
+                <h3 className="title">
+                  {title}
+                  <sup>
+                    <i className="fas fa-star" style={{ color: "#f2b01e" }} />
+                    {vote_average}/10
+                  </sup>
+                </h3>
+                <h5 className="tagline">{tagline}</h5>
+                <p className="overview">{overview}</p>
+                <p>Release Date: {release_date}</p>
+              </div>
+            </div>
+          </div>
         </div>
       );
     } else {

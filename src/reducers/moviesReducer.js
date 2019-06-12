@@ -28,7 +28,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         page: action.payload.page,
-        popularmovies: action.payload.results,
+        popularmovies: [action.payload.results, ...state.popularmovies],
         total_pages: action.payload.total_pages,
         total_results: action.payload.total_results
       };
@@ -38,7 +38,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         page: action.payload.page,
-        latestmovies: action.payload.results,
+        latestmovies: [action.payload.results, ...state.latestmovies],
         total_pages: action.payload.total_pages,
         total_results: action.payload.total_results
       };
@@ -48,7 +48,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         page: action.payload.page,
-        nowplaying: action.payload.results,
+        nowplaying: [action.payload.results, ...state.nowplaying],
         total_pages: action.payload.total_pages,
         total_results: action.payload.total_results
       };
@@ -58,7 +58,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         page: action.payload.page,
-        toprated: action.payload.results,
+        toprated: [action.payload.results, ...state.toprated],
         total_pages: action.payload.total_pages,
         total_results: action.payload.total_results
       };
@@ -68,13 +68,13 @@ export default function(state = initialState, action) {
       return {
         ...state,
         page: action.payload.page,
-        upcoming: action.payload.results,
+        upcoming: [action.payload.results, ...state.upcoming],
         total_pages: action.payload.total_pages,
         total_results: action.payload.total_results
       };
 
     case GET_MOVIE_DETAILS:
-      console.log(action.payload);
+      // console.log(action.payload);
       return {
         ...state,
         movieDetails: action.payload
